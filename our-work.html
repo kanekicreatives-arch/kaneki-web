@@ -1,0 +1,1036 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <!-- ===========================================
+         DOCUMENT METADATA & SEO
+    =========================================== -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover">
+    <title>Tourism Marketing Case Studies & Success Stories | Kaneki Creatives Portfolio</title>
+    <meta name="description" content="Explore our successful digital marketing projects and client testimonials. See how Kaneki Creatives has helped tourism businesses grow.">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="2.webp" type="image/webp">
+    <link rel="apple-touch-icon" href="2.webp">
+    
+    <!-- ===========================================
+         EXTERNAL DEPENDENCIES
+    =========================================== -->
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Main JavaScript -->
+    <script src="main.js"></script>
+    
+    <!-- ===========================================
+         CUSTOM STYLES
+    =========================================== -->
+    <style>
+        /* ===========================================
+           TYPOGRAPHY & BASE STYLES
+        =========================================== */
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #ffffff;
+            color: #374151;
+            -webkit-text-size-adjust: 100%;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden;
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        /* ===========================================
+           MOBILE OPTIMIZATIONS
+        =========================================== */
+        @media (max-width: 768px) {
+            /* Improved touch targets */
+            button, a, input, textarea, select {
+                min-height: 44px;
+                min-width: 44px;
+            }
+            
+            /* Better text sizing */
+            html {
+                font-size: 16px;
+            }
+            
+            /* Improved spacing for mobile */
+            .container {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+            
+            /* Better button spacing */
+            .btn {
+                padding: 12px 24px;
+                font-size: 16px;
+            }
+            
+            /* Improved form inputs */
+            input, textarea, select {
+                font-size: 16px;
+                padding: 12px 16px;
+                border-radius: 8px;
+            }
+            
+            /* Better modal on mobile */
+            .modal .bg-white {
+                margin: 1rem;
+                max-height: calc(100vh - 2rem);
+                overflow-y: auto;
+            }
+            
+            /* Better case study cards on mobile */
+            .case-study-card {
+                padding: 1.5rem;
+                margin-bottom: 1rem;
+            }
+            
+            /* Improved grid layouts */
+            .grid {
+                gap: 1rem;
+            }
+            
+            /* Better navigation */
+            .header-nav-link {
+                padding: 12px 16px;
+                font-size: 16px;
+            }
+            
+            /* Better floating testimonials on mobile */
+            .floating-testimonial {
+                max-width: 200px;
+                padding: 12px;
+                font-size: 12px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            /* Extra small screens */
+            .container {
+                padding-left: 0.75rem;
+                padding-right: 0.75rem;
+            }
+            
+            /* Stack buttons vertically on very small screens */
+            .flex-col {
+                flex-direction: column;
+            }
+            
+            .flex-col > * {
+                width: 100%;
+                margin-bottom: 0.5rem;
+            }
+            
+            /* Even smaller floating testimonials */
+            .floating-testimonial {
+                max-width: 180px;
+                padding: 10px;
+                font-size: 11px;
+            }
+            
+            /* Better touch interactions */
+            * {
+                -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+            }
+            
+            /* Improved scrolling */
+            .overflow-y-auto {
+                -webkit-overflow-scrolling: touch;
+            }
+            
+            /* Better focus states for mobile */
+            button:focus, a:focus, input:focus, textarea:focus {
+                outline: 2px solid #f97316;
+                outline-offset: 2px;
+            }
+            
+            /* Prevent zoom on input focus */
+            input, textarea, select {
+                font-size: 16px !important;
+            }
+            
+            /* Image optimizations for mobile */
+            img {
+                max-width: 100%;
+                height: auto;
+                display: block;
+            }
+        }
+        
+        h1, h2, h3, h4, .font-display {
+            font-family: 'Playfair Display', serif;
+            color: #111827;
+        }
+        
+        .section-title {
+            font-weight: 800;
+            letter-spacing: -0.02em;
+        }
+        
+        /* ===========================================
+           BACKGROUND SLIDESHOW SYSTEM
+        =========================================== */
+        #site-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1000;
+            overflow: hidden;
+        }
+        
+        .bg-slide {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transform: translateX(50%);
+            animation: slideEffect 50s infinite;
+        }
+        
+        .bg-slide:nth-child(2) { animation-delay: 10s; }
+        .bg-slide:nth-child(3) { animation-delay: 20s; }
+        .bg-slide:nth-child(4) { animation-delay: 30s; }
+        .bg-slide:nth-child(5) { animation-delay: 40s; }
+        
+        #site-bg-overlay {
+            position: fixed;
+            inset: 0;
+            background-color: rgba(255, 255, 255, 0.5);
+            z-index: -900;
+            pointer-events: none;
+        }
+        
+        /* ===========================================
+           HEADER & NAVIGATION STYLES
+        =========================================== */
+        header {
+            background-color: transparent;
+            backdrop-filter: blur(2px);
+            transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+        
+        .header-nav-link {
+            position: relative;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-weight: 600;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .header-nav-link:hover {
+            background-color: rgba(234, 88, 12, 0.1);
+            transform: translateY(-1px);
+        }
+        
+        .logo-img {
+            background: transparent;
+            mix-blend-mode: multiply;
+            filter: contrast(1.2) brightness(1.1);
+        }
+        
+        /* ===========================================
+           FLOATING TESTIMONIALS ANIMATION
+        =========================================== */
+        .floating-testimonial {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            max-width: 280px;
+            width: 280px;
+            animation: floatAnimation 25s infinite linear;
+            z-index: 1;
+        }
+        
+        .floating-testimonial:nth-child(odd) {
+            animation-direction: reverse;
+        }
+        
+        .floating-testimonial:nth-child(1) { 
+            animation-delay: 0s; 
+            top: 20px;
+        }
+        .floating-testimonial:nth-child(2) { 
+            animation-delay: -3s; 
+            top: 80px;
+        }
+        .floating-testimonial:nth-child(3) { 
+            animation-delay: -6s; 
+            top: 140px;
+        }
+        .floating-testimonial:nth-child(4) { 
+            animation-delay: -9s; 
+            top: 200px;
+        }
+        .floating-testimonial:nth-child(5) { 
+            animation-delay: -12s; 
+            top: 260px;
+        }
+        .floating-testimonial:nth-child(6) { 
+            animation-delay: -15s; 
+            top: 50px;
+        }
+        .floating-testimonial:nth-child(7) { 
+            animation-delay: -18s; 
+            top: 110px;
+        }
+        .floating-testimonial:nth-child(8) { 
+            animation-delay: -21s; 
+            top: 170px;
+        }
+        .floating-testimonial:nth-child(9) { 
+            animation-delay: -24s; 
+            top: 230px;
+        }
+        .floating-testimonial:nth-child(10) { 
+            animation-delay: -27s; 
+            top: 290px;
+        }
+        .floating-testimonial:nth-child(11) { 
+            animation-delay: -30s; 
+            top: 35px;
+        }
+        .floating-testimonial:nth-child(12) { 
+            animation-delay: -33s; 
+            top: 95px;
+        }
+        
+        @keyframes floatAnimation {
+            0% {
+                transform: translateX(-120vw) translateY(0px) rotate(-2deg);
+                opacity: 0;
+            }
+            5% {
+                opacity: 1;
+            }
+            15% {
+                transform: translateX(-100vw) translateY(0px) rotate(0deg);
+                opacity: 1;
+            }
+            85% {
+                transform: translateX(100vw) translateY(0px) rotate(0deg);
+                opacity: 1;
+            }
+            95% {
+                transform: translateX(120vw) translateY(0px) rotate(2deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateX(140vw) translateY(0px) rotate(2deg);
+                opacity: 0;
+            }
+        }
+        
+        /* ===========================================
+           CASE STUDY CARD STYLES
+        =========================================== */
+        .case-study-card {
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+        }
+        
+        .case-study-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* ===========================================
+           KEYFRAME ANIMATIONS
+        =========================================== */
+        @keyframes slideEffect {
+            0% {
+                opacity: 0;
+                transform: translateX(50%);
+            }
+            10% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+            33% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+            43% {
+                opacity: 0;
+                transform: translateX(-50%);
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+        
+        /* ===========================================
+           ACCESSIBILITY & RESPONSIVE DESIGN
+        =========================================== */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation: none !important;
+                transition: none !important;
+                scroll-behavior: auto !important;
+            }
+        }
+        
+        
+        /* ===========================================
+           TOUCH DEVICE OPTIMIZATIONS
+        =========================================== */
+        @media (hover: none) and (pointer: coarse) {
+            /* Touch-friendly hover states */
+            .hover\:scale-105:hover {
+                transform: scale(1.02);
+            }
+            
+            .hover\:-translate-y-1:hover {
+                transform: translateY(-2px);
+            }
+            
+            /* Better touch feedback */
+            button:active, a:active {
+                transform: scale(0.98);
+                transition: transform 0.1s ease;
+            }
+        }
+        
+        /* ===========================================
+           PROFESSIONAL LOADING SCREEN
+        =========================================== */
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 1;
+            visibility: visible;
+            transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+        }
+        
+        .loading-screen.fade-out {
+            opacity: 0;
+            visibility: hidden;
+        }
+        
+        .loading-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+        
+        .loading-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            color: white;
+        }
+        
+        .loading-spinner {
+            margin-bottom: 1.5rem;
+        }
+        
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 3px solid rgba(255, 255, 255, 0.2);
+            border-top: 3px solid #f97316;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+        }
+        
+        .loading-text {
+            font-size: 1.125rem;
+            font-weight: 500;
+            color: white;
+            font-family: 'Montserrat', sans-serif;
+            letter-spacing: 0.5px;
+        }
+        
+        /* ===========================================
+           LOADING ANIMATIONS
+        =========================================== */
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* ===========================================
+           MOBILE LOADING OPTIMIZATIONS
+        =========================================== */
+        @media (max-width: 768px) {
+            .spinner {
+                width: 40px;
+                height: 40px;
+                border-width: 2px;
+            }
+            
+            .loading-text {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body class="antialiased">
+    <!-- ===========================================
+         LOADING SCREEN
+    =========================================== -->
+    <div id="loading-screen" class="loading-screen">
+        <div class="loading-background"></div>
+        <div class="loading-content">
+            <div class="loading-spinner">
+                <div class="spinner"></div>
+            </div>
+            <div class="loading-text">Loading...</div>
+        </div>
+    </div>
+
+    <!-- ===========================================
+         GLOBAL BACKGROUND SYSTEM
+    =========================================== -->
+    <div id="site-background" aria-hidden="true">
+        <div class="bg-slide" style="background-image: url('aditya-siva-HlQi14Q_iO0-unsplash.webp');"></div>
+        <div class="bg-slide" style="background-image: url('amit-jain-FYGEA9aezAw-unsplash.webp');"></div>
+        <div class="bg-slide" style="background-image: url('mondakranta-saikia-Xqw7XgnvU3w-unsplash.webp');"></div>
+        <div class="bg-slide" style="background-image: url('nilotpal-kalita-IpRIguCAQes-unsplash.webp');"></div>
+        <div class="bg-slide" style="background-image: url('nilotpal-kalita-Q-7foDSBxDA-unsplash.webp');"></div>
+    </div>
+    <div id="site-bg-overlay" aria-hidden="true"></div>
+
+    <!-- ===========================================
+         HEADER & NAVIGATION
+    =========================================== -->
+    <header id="header" class="fixed top-0 left-0 right-0 z-50" role="banner">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center" aria-label="Kaneki Creatives home">
+                <img src="2.webp" alt="Kaneki Creatives Logo" class="w-auto logo-img" style="height: 80px;">
+            </a>
+            <nav class="hidden md:flex flex-1 justify-center space-x-8 items-center" role="navigation" aria-label="Primary">
+                <a href="service.html" class="text-gray-800 font-semibold hover:text-orange-600 transition duration-300 header-nav-link">Services</a>
+                <a href="our-work.html" class="text-orange-600 font-semibold transition duration-300 header-nav-link">Our Work</a>
+                <a href="our-work.html#testimonials" class="text-gray-800 font-semibold hover:text-orange-600 transition duration-300 header-nav-link">Testimonials</a>
+                <a href="#contact" class="text-gray-800 font-semibold hover:text-orange-600 transition duration-300 header-nav-link">Contact</a>
+            </nav>
+            <div class="hidden md:block">
+                <a href="index.html#audit-modal" class="group inline-flex items-center bg-orange-600 text-white font-semibold px-5 py-2 rounded-lg hover:bg-orange-700 transition duration-300 transform hover:scale-105 shadow-lg hover:shadow-orange-800/40">
+                    Free Audit 
+                    <i data-lucide="arrow-right" class="w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1"></i>
+                </a>
+            </div>
+            
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
+                <i data-lucide="menu" class="w-6 h-6 text-gray-800"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 bg-white/95 backdrop-blur-sm border-t border-gray-200" role="menu" aria-label="Mobile">
+            <a href="service.html" class="block py-3 text-gray-800 font-semibold hover:text-orange-600 border-b border-gray-100 min-h-[44px] flex items-center">Services</a>
+            <a href="our-work.html" class="block py-3 text-gray-800 font-semibold hover:text-orange-600 border-b border-gray-100 min-h-[44px] flex items-center">Our Work</a>
+            <a href="our-work.html#testimonials" class="block py-3 text-gray-800 font-semibold hover:text-orange-600 border-b border-gray-100 min-h-[44px] flex items-center">Testimonials</a>
+            <a href="#contact" class="block py-3 text-gray-800 font-semibold hover:text-orange-600 border-b border-gray-100 min-h-[44px] flex items-center">Contact</a>
+            <a href="index.html#audit-modal" class="w-full mt-4 bg-orange-600 text-white font-semibold px-5 py-3 rounded-lg hover:bg-orange-700 transition duration-300 block text-center min-h-[44px] flex items-center justify-center">Free Audit</a>
+        </div>
+    </header>
+
+
+    <!-- ===========================================
+         CASE STUDIES SECTION
+    =========================================== -->
+    <section class="pt-24 pb-20">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl section-title mb-4">Success Stories</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                    Real projects, real results. See how we've transformed tourism businesses with our digital expertise.
+                </p>
+            </div>
+            
+            <!-- Portfolio Summary Section -->
+            <div class="bg-gradient-to-r from-orange-50 to-orange-100 rounded-2xl p-8 mb-12 text-center">
+                <div class="max-w-4xl mx-auto">
+                    <h3 class="text-3xl font-bold text-gray-900 mb-4">Extensive Portfolio Experience</h3>
+                    <p class="text-lg text-gray-700 mb-6">
+                        Over the years, we've successfully completed <strong>20+ digital marketing projects</strong> 
+                        across various tourism sectors. From boutique homestays to luxury resorts, 
+                        adventure tour operators to restaurant chains, our expertise spans the entire tourism ecosystem.
+                    </p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 text-center">
+                        <div class="bg-white rounded-lg p-6 shadow-sm">
+                            <div class="text-3xl font-bold text-orange-600 mb-2">20+</div>
+                            <div class="text-gray-600">Projects Completed</div>
+                        </div>
+                        <div class="bg-white rounded-lg p-6 shadow-sm">
+                            <div class="text-3xl font-bold text-orange-600 mb-2">5+</div>
+                            <div class="text-gray-600">Tourism Sectors</div>
+                        </div>
+                        <div class="bg-white rounded-lg p-6 shadow-sm">
+                            <div class="text-3xl font-bold text-orange-600 mb-2">98%</div>
+                            <div class="text-gray-600">Client Satisfaction</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Featured Case Studies -->
+            <div class="text-center mb-8">
+                <h3 class="text-2xl font-bold text-gray-900 mb-2">Featured Success Stories</h3>
+                <p class="text-gray-600">Here are three recent projects that showcase our expertise and results</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Case Study 1 -->
+                <a href="https://bohostudiostay.bytexl.live/" target="_blank" rel="noopener noreferrer" class="case-study-card rounded-2xl p-8 shadow-lg border border-gray-100 block hover:shadow-xl transition-all duration-300 group">
+                    <div class="mb-6">
+                        <img src="9.webp" alt="Boho Studio Stay" class="w-full h-48 object-cover rounded-lg mb-4">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-2">Boho Studio Stay</h3>
+                        <p class="text-gray-600 mb-4">Complete digital transformation for a premium bohemian studio accommodation</p>
+                    </div>
+                    <div class="grid grid-cols-3 gap-3">
+                        <div class="bg-gray-50 border border-gray-200 rounded-lg p-3 text-center">
+                            <div class="text-2xl font-bold text-gray-800 mb-1">+120%</div>
+                            <div class="text-xs font-medium text-gray-600">Direct Bookings</div>
+                        </div>
+                        <div class="bg-gray-50 border border-gray-200 rounded-lg p-3 text-center">
+                            <div class="text-2xl font-bold text-gray-800 mb-1">+85%</div>
+                            <div class="text-xs font-medium text-gray-600">Website Traffic</div>
+                        </div>
+                        <div class="bg-gray-50 border border-gray-200 rounded-lg p-3 text-center">
+                            <div class="text-2xl font-bold text-gray-800 mb-1">340%</div>
+                            <div class="text-xs font-medium text-gray-600">ROI</div>
+                        </div>
+                    </div>
+                    <div class="mt-4 text-center">
+                        <span class="inline-flex items-center text-orange-600 font-medium text-sm group-hover:text-orange-700">
+                            Visit Website
+                            <i data-lucide="external-link" class="w-4 h-4 ml-1"></i>
+                        </span>
+                </div>
+                </a>
+
+                <!-- Case Study 2 -->
+                    <a href="https://phuntsohomestay.com/" target="_blank" rel="noopener noreferrer" class="case-study-card rounded-2xl p-8 shadow-lg border border-gray-100 block hover:shadow-xl transition-all duration-300">
+                        <div class="mb-6">
+                            <img src="Screenshot 2025-09-23 110515.webp" alt="Phuntso Homestay" class="w-full h-48 object-cover rounded-lg mb-4">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-2">Phuntso Homestay</h3>
+                        <p class="text-gray-600 mb-4">Complete digital transformation for serene homestay in Sangti Valley</p>
+                    </div>
+                    <div class="grid grid-cols-3 gap-3">
+                        <div class="bg-gray-50 border border-gray-200 rounded-lg p-3 text-center">
+                            <div class="text-2xl font-bold text-gray-800 mb-1">+250%</div>
+                            <div class="text-xs font-medium text-gray-600">Direct Bookings</div>
+                        </div>
+                        <div class="bg-gray-50 border border-gray-200 rounded-lg p-3 text-center">
+                            <div class="text-2xl font-bold text-gray-800 mb-1">4.9/5</div>
+                            <div class="text-xs font-medium text-gray-600">Guest Rating</div>
+                        </div>
+                        <div class="bg-gray-50 border border-gray-200 rounded-lg p-3 text-center">
+                            <div class="text-2xl font-bold text-gray-800 mb-1">+180%</div>
+                            <div class="text-xs font-medium text-gray-600">Online Visibility</div>
+                        </div>
+                    </div>
+                    <div class="mt-4 text-center">
+                        <span class="inline-flex items-center text-orange-600 font-medium text-sm">
+                            Visit Website
+                            <i data-lucide="external-link" class="w-4 h-4 ml-1"></i>
+                        </span>
+                    </div>
+                </a>
+
+                <!-- Case Study 3 -->
+                    <a href="https://villasitaresort.in/" target="_blank" rel="noopener noreferrer" class="case-study-card rounded-2xl p-8 shadow-lg border border-gray-100 block hover:shadow-xl transition-all duration-300 group">
+                        <div class="mb-6">
+                            <img src="Screenshot 2025-09-23 111353.webp" alt="Villasita Resort" class="w-full h-48 object-cover rounded-lg mb-4">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-2">Villasita Resort</h3>
+                        <p class="text-gray-600 mb-4">Complete digital transformation for luxury resort near Rajaji National Park, Uttarakhand</p>
+                    </div>
+                    <div class="grid grid-cols-3 gap-3">
+                        <div class="bg-gray-50 border border-gray-200 rounded-lg p-3 text-center">
+                            <div class="text-2xl font-bold text-gray-800 mb-1">#1-3</div>
+                            <div class="text-xs font-medium text-gray-600">Local Rankings</div>
+                        </div>
+                        <div class="bg-gray-50 border border-gray-200 rounded-lg p-3 text-center">
+                            <div class="text-2xl font-bold text-gray-800 mb-1">+95%</div>
+                            <div class="text-xs font-medium text-gray-600">Booking Rate</div>
+                        </div>
+                        <div class="bg-gray-50 border border-gray-200 rounded-lg p-3 text-center">
+                            <div class="text-2xl font-bold text-gray-800 mb-1">+180%</div>
+                            <div class="text-xs font-medium text-gray-600">Revenue Growth</div>
+                        </div>
+                    </div>
+                    <div class="mt-4 text-center">
+                        <span class="inline-flex items-center text-orange-600 font-medium text-sm group-hover:text-orange-700">
+                            Visit Website
+                            <i data-lucide="external-link" class="w-4 h-4 ml-1"></i>
+                        </span>
+                </div>
+                </a>
+            </div>
+
+            <!-- Additional Portfolio Note -->
+            <div class="text-center mt-12">
+                <div class="bg-gray-50 rounded-lg p-6 max-w-2xl mx-auto">
+                    <h4 class="text-xl font-semibold text-gray-900 mb-3">Want to See More?</h4>
+                    <p class="text-gray-600 mb-4">
+                        We have many more success stories across different tourism sectors. 
+                        Contact us to discuss your specific needs and see relevant case studies from your industry.
+                    </p>
+                    <a href="index.html#audit-modal" class="inline-flex items-center bg-orange-600 text-white font-semibold px-6 py-3 rounded-lg hover:bg-orange-700 transition duration-300">
+                        View More Case Studies
+                        <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===========================================
+         FLOATING TESTIMONIALS SECTION
+    =========================================== -->
+    <section id="testimonials" class="py-20 bg-gray-50 relative overflow-hidden">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl section-title mb-4">What Our Clients Say</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                    Real feedback from our satisfied clients across the tourism industry.
+                </p>
+            </div>
+            
+            <!-- Floating Testimonials Container -->
+            <div class="relative h-96 overflow-hidden">
+                <!-- Floating Testimonial 1 -->
+                <div class="floating-testimonial">
+                    <div class="flex items-center mb-3">
+                        <img src="https://placehold.co/40x40/34D399/FFFFFF?text=RS" class="w-10 h-10 rounded-full mr-3" alt="Rajesh Sharma">
+                        <div>
+                            <p class="font-bold text-gray-900">Rajesh Sharma</p>
+                            <p class="text-sm text-gray-500">Owner, Himalayan Heights Resort, Manali</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 text-sm">"Kaneki Creatives has really changed the game for us! Our direct bookings have never been higher!"</p>
+                </div>
+
+                <!-- Floating Testimonial 2 -->
+                <div class="floating-testimonial">
+                    <div class="flex items-center mb-3">
+                        <img src="https://placehold.co/40x40/FBBF24/FFFFFF?text=AS" class="w-10 h-10 rounded-full mr-3" alt="Anjali Singh">
+                        <div>
+                            <p class="font-bold text-gray-900">Anjali Singh</p>
+                            <p class="text-sm text-gray-500">Owner, Royal Heritage Palace, Jaipur</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 text-sm">"Our direct bookings increased by 250% and we now have a 4.9/5 rating! Kaneki Creatives has been exceptional!"</p>
+                </div>
+
+                <!-- Floating Testimonial 3 -->
+                <div class="floating-testimonial">
+                    <div class="flex items-center mb-3">
+                        <img src="https://placehold.co/40x40/A78BFA/FFFFFF?text=VP" class="w-10 h-10 rounded-full mr-3" alt="Vikram Patel">
+                        <div>
+                            <p class="font-bold text-gray-900">Vikram Patel</p>
+                            <p class="text-sm text-gray-500">Director, Gujarat Adventure Tours, Ahmedabad</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 text-sm">"These guys are simply brilliant! Clear analytics and tangible results every month."</p>
+                </div>
+
+                <!-- Floating Testimonial 4 -->
+                <div class="floating-testimonial">
+                    <div class="flex items-center mb-3">
+                        <img src="https://placehold.co/40x40/EF4444/FFFFFF?text=PK" class="w-10 h-10 rounded-full mr-3" alt="Priya Kumar">
+                        <div>
+                            <p class="font-bold text-gray-900">Priya Kumar</p>
+                            <p class="text-sm text-gray-500">Manager, Kerala Backwaters Resort, Kochi</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 text-sm">"Very professional and responsive team. They really understand the Indian tourism market. Highly recommended!"</p>
+                </div>
+
+                <!-- Floating Testimonial 5 -->
+                <div class="floating-testimonial">
+                    <div class="flex items-center mb-3">
+                        <img src="https://placehold.co/40x40/10B981/FFFFFF?text=AM" class="w-10 h-10 rounded-full mr-3" alt="Amit Mehta">
+                        <div>
+                            <p class="font-bold text-gray-900">Amit Mehta</p>
+                            <p class="text-sm text-gray-500">Founder, Rajasthan Desert Camps, Jaisalmer</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 text-sm">"Amazing results in just 3 months! Our online presence has grown significantly. Now we are getting bookings from all over the world!"</p>
+                </div>
+
+                <!-- Floating Testimonial 6 -->
+                <div class="floating-testimonial">
+                    <div class="flex items-center mb-3">
+                        <img src="https://placehold.co/40x40/8B5CF6/FFFFFF?text=SG" class="w-10 h-10 rounded-full mr-3" alt="Sunita Gupta">
+                        <div>
+                            <p class="font-bold text-gray-900">Sunita Gupta</p>
+                            <p class="text-sm text-gray-500">Owner, Goa Beach Villa, Calangute</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 text-sm">"Their expertise in tourism marketing is unmatched! We've seen incredible growth in our bookings!"</p>
+                </div>
+
+                <!-- Floating Testimonial 7 -->
+                <div class="floating-testimonial">
+                    <div class="flex items-center mb-3">
+                        <img src="https://placehold.co/40x40/F59E0B/FFFFFF?text=NR" class="w-10 h-10 rounded-full mr-3" alt="Nikhil Reddy">
+                        <div>
+                            <p class="font-bold text-gray-900">Nikhil Reddy</p>
+                            <p class="text-sm text-gray-500">Director, Bangalore Business Hotel, Bangalore</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 text-sm">"Outstanding service and results! They've become an integral part of our business growth. Really happy with their work!"</p>
+                </div>
+
+                <!-- Floating Testimonial 8 -->
+                <div class="floating-testimonial">
+                    <div class="flex items-center mb-3">
+                        <img src="https://placehold.co/40x40/EC4899/FFFFFF?text=SM" class="w-10 h-10 rounded-full mr-3" alt="Suresh Mishra">
+                        <div>
+                            <p class="font-bold text-gray-900">Suresh Mishra</p>
+                            <p class="text-sm text-gray-500">Manager, Rishikesh Adventure Lodge, Rishikesh</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 text-sm">"Creative solutions that actually work! Our bookings have tripled since working with them. Really impressed!"</p>
+                </div>
+
+                <!-- Floating Testimonial 9 - Priyadarshini -->
+                <div class="floating-testimonial">
+                    <div class="flex items-center mb-3">
+                        <img src="https://placehold.co/40x40/8B5CF6/FFFFFF?text=PD" class="w-10 h-10 rounded-full mr-3" alt="Priyadarshini">
+                        <div>
+                            <p class="font-bold text-gray-900">Priyadarshini</p>
+                            <p class="text-sm text-gray-500">Owner, Boho Studio, Guwahati</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 text-sm">"Kaneki Creatives has been a game-changer for our studio! Our bookings have increased tremendously!"</p>
+                </div>
+
+                <!-- Floating Testimonial 10 - Phuntso -->
+                <div class="floating-testimonial">
+                    <div class="flex items-center mb-3">
+                        <img src="https://placehold.co/40x40/FBBF24/FFFFFF?text=PH" class="w-10 h-10 rounded-full mr-3" alt="Phuntso">
+                        <div>
+                            <p class="font-bold text-gray-900">Phuntso</p>
+                            <p class="text-sm text-gray-500">Owner, Phuntso Homestay, Sangti Valley</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 text-sm">"Kaneki Creatives transformed our online presence completely. Our direct bookings increased by 250%!"</p>
+                </div>
+
+                <!-- Floating Testimonial 11 - Anjali Singh -->
+                <div class="floating-testimonial">
+                    <div class="flex items-center mb-3">
+                        <img src="https://placehold.co/40x40/FBBF24/FFFFFF?text=AS" class="w-10 h-10 rounded-full mr-3" alt="Anjali Singh">
+                        <div>
+                            <p class="font-bold text-gray-900">Anjali Singh</p>
+                            <p class="text-sm text-gray-500">Owner, Royal Heritage Palace, Jaipur</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 text-sm">"Their social media campaigns are amazing and they really know how to showcase our heritage property beautifully!"</p>
+                </div>
+
+                <!-- Floating Testimonial 12 - Vikram Patel -->
+                <div class="floating-testimonial">
+                    <div class="flex items-center mb-3">
+                        <img src="https://placehold.co/40x40/A78BFA/FFFFFF?text=VP" class="w-10 h-10 rounded-full mr-3" alt="Vikram Patel">
+                        <div>
+                            <p class="font-bold text-gray-900">Vikram Patel</p>
+                            <p class="text-sm text-gray-500">Director, Gujarat Adventure Tours, Ahmedabad</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 text-sm">"Arre, these guys are simply brilliant! Our online bookings have increased by 300% and now we are getting tourists from all over India!"</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===========================================
+         CALL TO ACTION SECTION
+    =========================================== -->
+    <section class="py-20 bg-gradient-to-r from-orange-600 to-orange-700">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-4xl font-bold text-white mb-6">Ready to Start Your Success Story?</h2>
+            <p class="text-xl text-orange-100 mb-8 max-w-2xl mx-auto">
+                Join our growing list of successful tourism businesses. Let's create your digital success story together.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="index.html#audit-modal" class="inline-flex items-center justify-center px-8 py-4 rounded-lg bg-white text-orange-600 font-semibold hover:bg-orange-50 transition duration-300 shadow-lg">
+                    Get Free Audit
+                    <i data-lucide="arrow-right" class="w-5 h-5 ml-2"></i>
+                </a>
+                <a href="#contact" class="inline-flex items-center justify-center px-8 py-4 rounded-lg border-2 border-white text-white font-semibold hover:bg-white hover:text-orange-600 transition duration-300">
+                    Contact Us
+                    <i data-lucide="mail" class="w-5 h-5 ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===========================================
+         CONTACT & FOOTER SECTION
+    =========================================== -->
+    <footer id="contact" class="bg-gray-800 text-white relative overflow-hidden">
+         <!-- Abstract Graphic -->
+        <div class="absolute inset-0 z-0 opacity-5" aria-hidden="true">
+            <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg" ><defs><pattern id="footer-pattern" patternUnits="userSpaceOnUse" width="40" height="40" patternTransform="translate(0 -1) scale(0.5)"><rect x="0" y="0" width="4" height="4" fill="currentColor" class="text-orange-500"></rect></pattern></defs><rect width="100%" height="100%" fill="url(#footer-pattern)"></rect></svg>
+        </div>
+        <div class="container mx-auto px-6 py-16 relative z-10">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="lg:col-span-1">
+                    <h3 class="text-2xl font-bold mb-4 text-white font-display">Kaneki Creatives</h3>
+                    <p class="text-gray-400">Your partner in navigating the digital world of tourism.</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4 text-white">Company</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html#about" class="text-gray-400 hover:text-white">About Us</a></li>
+                        <li><a href="our-work.html" class="text-gray-400 hover:text-white">Our Work</a></li>
+                        <li><a href="index.html#why-choose-us" class="text-gray-400 hover:text-white">Why Choose Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                     <h3 class="text-lg font-semibold mb-4 text-white">Services</h3>
+                    <ul class="space-y-2">
+                        <li><a href="service.html" class="text-gray-400 hover:text-white">Web Design</a></li>
+                        <li><a href="service.html" class="text-gray-400 hover:text-white">Digital Marketing</a></li>
+                        <li><a href="service.html" class="text-gray-400 hover:text-white">AI Automation</a></li>
+                        <li><a href="service.html" class="text-gray-400 hover:text-white">SEO Optimization</a></li>
+                        <li><a href="service.html" class="text-gray-400 hover:text-white">Social Media Marketing</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4 text-white">Contact Us</h3>
+                    <div class="space-y-3">
+                        <div>
+                            <p class="text-gray-400 text-sm mb-1">Address:</p>
+                            <p class="text-gray-300">House No 20, Narayanee, Kharghuli, Guwahati- 781004</p>
+                        </div>
+                        <div>
+                            <a href="mailto:info@kanekicreatives.com" class="text-gray-400 hover:text-white transition duration-300">info@kanekicreatives.com</a>
+                        </div>
+                        <div>
+                            <a href="tel:+917625880719" class="text-gray-400 hover:text-white transition duration-300">+91 76258 80719</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-12 pt-8 text-center text-gray-500">
+                <p>&copy; 2025 Kaneki Creatives. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===========================================
+         AUDIT MODAL
+    =========================================== -->
+    <div id="audit-modal" class="modal fixed inset-0 bg-black bg-opacity-70 items-center justify-center p-4 z-50 hidden" role="dialog" aria-modal="true" aria-labelledby="audit-modal-title">
+        <div class="bg-white rounded-2xl p-8 max-w-md w-full mx-4 max-h-[90vh] overflow-y-auto">
+            <div class="flex justify-between items-center mb-6">
+                <h3 id="audit-modal-title" class="text-2xl font-bold text-gray-900">Free Business Audit</h3>
+                <button class="modal-close text-gray-400 hover:text-gray-600 transition duration-200" aria-label="Close modal">
+                    <i data-lucide="x" class="w-6 h-6"></i>
+                </button>
+            </div>
+            
+            <form id="audit-form" action="https://script.google.com/macros/s/AKfycbyHCzWRo4zzCCCrhybnse6vM20pEYiQt3J4mZQpoiyourz1QTY5XEhCVfnPbwglIaz7jA/exec" method="POST">
+                <div class="space-y-4">
+                    <div>
+                        <label for="business-name" class="block text-sm font-medium text-gray-700 mb-2">Business Name *</label>
+                        <input type="text" id="business-name" name="business_name" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition duration-200">
+                    </div>
+                    
+                    <div>
+                        <label for="contact-name" class="block text-sm font-medium text-gray-700 mb-2">Your Name *</label>
+                        <input type="text" id="contact-name" name="contact_name" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition duration-200">
+                    </div>
+                    
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email Address *</label>
+                        <input type="email" id="email" name="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition duration-200">
+                    </div>
+                    
+                    <div>
+                        <label for="phone" class="block text-sm font-medium text-gray-700 mb-2">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition duration-200">
+                    </div>
+                    
+                    <div>
+                        <label for="business-type" class="block text-sm font-medium text-gray-700 mb-2">Business Type</label>
+                        <select id="business-type" name="business_type" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition duration-200">
+                            <option value="">Select your business type</option>
+                            <option value="hotel">Hotel</option>
+                            <option value="resort">Resort</option>
+                            <option value="homestay">Homestay</option>
+                            <option value="restaurant">Restaurant</option>
+                            <option value="travel-agency">Travel Agency</option>
+                            <option value="tour-operator">Tour Operator</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div>
+                        <label for="current-challenges" class="block text-sm font-medium text-gray-700 mb-2">Current Digital Challenges</label>
+                        <textarea id="current-challenges" name="current_challenges" rows="3" placeholder="Tell us about your current digital marketing challenges..." class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition duration-200 resize-none"></textarea>
+                    </div>
+                </div>
+                
+                <div class="mt-6">
+                    <button type="submit" class="w-full bg-orange-600 text-white font-semibold py-3 px-6 rounded-lg hover:bg-orange-700 transition duration-300 transform hover:scale-105 shadow-lg">
+                        Get Free Audit
+                    </button>
+                </div>
+                
+                <div id="form-success-message" class="hidden text-center mt-4 p-4 bg-green-50 text-green-700 rounded-md border border-green-200">
+                    <i data-lucide="check-circle" class="w-6 h-6 mx-auto mb-2"></i>
+                    <p class="font-medium">Thank you! We'll get back to you within 24 hours.</p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- ===========================================
+         JAVASCRIPT FUNCTIONALITY
+    =========================================== -->
+    <script>
+        // ===========================================
+        // INITIALIZATION
+        // ===========================================
+        lucide.createIcons();
+        
+        // ===========================================
+        // MODAL FUNCTIONALITY
+        // ===========================================
+        function openModal() {
+            // Redirect to main page for modal functionality
+            window.location.href = '#contact';
+        }
+    </script>
+</body>
+</html>
